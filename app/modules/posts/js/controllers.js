@@ -7,8 +7,11 @@
         .controller('StatsController', ['$scope', '$timeout', StatsController])
 
 
+   
+
+
     function MessageController($scope, $timeout) {
-        
+
         $scope.messages = [{
             sender: 'user1',
             text: 'Msg1'
@@ -46,6 +49,7 @@
         $scope.name = 'World';
         $scope.status = 'Connected';
         $scope.statusColor = 'green';
+
         $scope.$on('EVENT_NO_DATA', function (event, data) {
             console.log('received broadcasted event');
             $scope.status = data;

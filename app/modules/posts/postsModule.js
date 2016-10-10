@@ -4,4 +4,8 @@
     angular.module('postsModule', ['posts.controllers'])
 
 
+        
+
+
+
 })();
