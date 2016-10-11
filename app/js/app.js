@@ -13,6 +13,10 @@
                     controller: 'Controller2',
                     templateUrl: 'partials/view2.html'
                 })
+                .when('/view2/:firstName/:lastName', {
+                    controller: 'Controller2',
+                    templateUrl: 'partials/view2.html'
+                })
                 .otherwise({ redirectTo: '/view1' });
 
             $locationProvider.html5Mode(true); 
