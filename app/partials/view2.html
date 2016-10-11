@@ -1,7 +1,14 @@
 <p>
-From View2.
-<ul>
-<li>First name: {{firstName}}</li>
-<li>Last name: {{lastName}}</li>
-</ul>
+	From View2.
+	<ul>
+		<li>First name: {{firstName}}</li>
+		<li>Last name: {{lastName}}</li>
+	</ul>
+
+	Our additional users are:
+	<ul>
+		<li ng-repeat="name in names">
+			{{name}}
+		</li>
+	</ul>
 </p>
