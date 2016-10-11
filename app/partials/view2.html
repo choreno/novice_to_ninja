@@ -1,14 +1,6 @@
 <p>
-	From View2.
-	<ul>
-		<li>First name: {{firstName}}</li>
-		<li>Last name: {{lastName}}</li>
-	</ul>
-
-	Our additional users are:
-	<ul>
-		<li ng-repeat="name in names">
-			{{name}}
-		</li>
-	</ul>
+	
+    <div ng-include="'/partials/fragments/selectedUser.html'"></div>
+    <div ng-include="'/partials/fragments/allUser.html'"></div>
+	
 </p>

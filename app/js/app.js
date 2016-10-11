@@ -23,19 +23,27 @@
                         //  }
 
                         //Adding the timeout delay 
-                        names: function($timeout){
-                            return $timeout(function(){
-                                return ['Voji','Jazee','WangZaZi']
-                            },2000)
+                        names: function ($timeout) {
+                            return $timeout(function () {
+                                return ['Voji', 'Jazee', 'WangZaZi']
+                            }, 2000)
                         }
 
                     }
-
-
-
-
                 })
-                .otherwise({ redirectTo: '/view1' });
+                .otherwise({ 
+                    redirectTo: '/view1' 
+                })                
+                // .otherwise({ 
+                //     redirectTo: '/view1' 
+                // })
+
+                // .otherwise(
+                // {
+                //     template: "<h1>None</h1><p>Nothing has been selected,</p>"
+                // }
+                // )
+                ;
 
             $locationProvider.html5Mode(true);
         });
