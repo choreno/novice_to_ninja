@@ -1,19 +1,22 @@
 (function () {
     'use strict';
-    angular.module('myApp', ['ngRoute', 'myApp.Controllers'])
+    angular.module('myApp', ['myApp.Controllers','ui.router'])
 
-        .config(function ($routeProvider, $locationProvider) {
+        .config(function ($stateProvider,$urlRouterProvider, $locationProvider) {
 
-            $routeProvider
-                .when('/view1', {
+            $stateProvider
+                .state('view1', {
+                    url: '/view1',
                     controller: 'Controller1',
                     templateUrl: 'partials/view1.html'
                 })
-                .when('/view2', {
-                    controller: 'Controller2',
-                    templateUrl: 'partials/view2.html'
-                })
-                .when('/view2/:firstName/:lastName', {
+                // .state('view2', {
+                //     url: '/view2',
+                //     controller: 'Controller2',
+                //     templateUrl: 'partials/view2.html'
+                // })
+                .state('view2', {
+                    url: '/view2/:firstName/:lastName',
                     controller: 'Controller2',
                     templateUrl: 'partials/view2.html',
                     resolve: {
@@ -26,14 +29,18 @@
                         names: function ($timeout) {
                             return $timeout(function () {
                                 return ['Voji', 'Jazee', 'WangZaZi']
-                            }, 2000)
+                            }, 1000)
                         }
 
                     }
-                })
-                .otherwise({ 
-                    redirectTo: '/view1' 
-                })                
+                });
+
+                $urlRouterProvider.otherwise('/view1') 
+
+
+                // .otherwise({ 
+                //     redirectTo: '/view1' 
+                // })                
                 // .otherwise({ 
                 //     redirectTo: '/view1' 
                 // })
