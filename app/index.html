@@ -3,12 +3,22 @@
 
 <head>
 	<meta charset="UTF-8">
+	 <base href="/">
+
+
 	<title>Novice to Ninja</title>
 
 	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="app/css/app.css">
 
+<!--<script type="text/ng-template" id="embedded.home.html">
+    <h1> Home </h1>
+</script>
+
+<script type="text/ng-template" id="embedded.about.html">
+    <h1> About </h1>
+</script>-->
 
 
 
@@ -17,10 +27,14 @@
 <body>
 
 	<ul class="menu">
-		<li><a href="#/view1">view1</a></li>
-		<li><a href="#/view2">view2</a></li>
+		<!--<li><a href="#/view1">view1</a></li>
+		<li><a href="#/view2">view2</a></li>-->
+		<li><a href="/view1">view1</a></li>
+		<li><a href="/view2">view2</a></li>
 	</ul>
-	<ng-view></ng-view>
+
+
+  <div ng-view></div>
 
 
 
