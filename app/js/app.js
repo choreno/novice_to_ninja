@@ -5,54 +5,30 @@
         .config(function ($stateProvider,$urlRouterProvider, $locationProvider) {
 
             $stateProvider
-                .state('view1', {
-                    url: '/view1',
+                .state('home', {
+                    url: '/home',
                     controller: 'Controller1',
-                    templateUrl: 'partials/view1.html'
+                    templateUrl: 'partials/home.html'
                 })
-                // .state('view2', {
-                //     url: '/view2',
-                //     controller: 'Controller2',
-                //     templateUrl: 'partials/view2.html'
-                // })
-                .state('view2', {
-                    url: '/view2/:firstName/:lastName',
-                    controller: 'Controller2',
-                    templateUrl: 'partials/view2.html',
-                    resolve: {
+                .state('home.list',{
+                    url:'/list',
+                    controller:function($scope){
+                        $scope.dogs=['Barnese','Husky','Goldendoodle'];
+                    },
+                    templateUrl:'partials/home-list.html'
+                })
+                .state('home.paragraph',{
+                    url:'/paragraph',
+                    template:'I could sure use a drink right now.'
+                })
 
-                        //  names: function(){
-                        //      return ['a','b'];
-                        //  }
-
-                        //Adding the timeout delay 
-                        names: function ($timeout) {
-                            return $timeout(function () {
-                                return ['Voji', 'Jazee', 'WangZaZi']
-                            }, 1000)
-                        }
-
-                    }
+                .state('about', {
+                    
                 });
 
-                $urlRouterProvider.otherwise('/view1') 
+                $urlRouterProvider.otherwise('/home'); 
 
-
-                // .otherwise({ 
-                //     redirectTo: '/view1' 
-                // })                
-                // .otherwise({ 
-                //     redirectTo: '/view1' 
-                // })
-
-                // .otherwise(
-                // {
-                //     template: "<h1>None</h1><p>Nothing has been selected,</p>"
-                // }
-                // )
-                ;
-
-            $locationProvider.html5Mode(true);
+            //$locationProvider.html5Mode(true);
         });
 
 
