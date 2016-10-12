@@ -2,7 +2,7 @@
     'use strict';
     angular.module('myApp', ['myApp.Controllers', 'ui.router'])
 
-        .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+        .config(function ($stateProvider, $urlRouterProvider, $locationProvider,DATA_SOURCE) {
 
             $stateProvider
                 .state('home', {
@@ -30,7 +30,7 @@
                             templateUrl: 'partials/about.html'
                         },
                         'columnOne@about': {
-                            template: 'Look I am a column'
+                            template: 'Look I am a column' + DATA_SOURCE 
                         },
                         'columnTwo@about': {
                             templateUrl: 'partials/table-data.html',
@@ -42,9 +42,9 @@
 
             $urlRouterProvider.otherwise('/home');
 
-            //$locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(true);
         })
-       
+       .constant('DATA_SOURCE','a string here');
 
 
 })();

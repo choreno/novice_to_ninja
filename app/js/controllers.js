@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.Controllers', [])
-    .controller('Controller1', function ($scope, $location, $state) {
+    .controller('Controller1', function ($scope, $location, $state, $log) {
         $scope.message = "Hello, world";
 
         $scope.loadView2 = function () {
@@ -11,6 +11,16 @@ angular.module('myApp.Controllers', [])
             })
             //$location.path('/view2/' + $scope.firstName + '/' + $scope.lastName);
         }
+
+
+        $log.warn('ttt');
+
+
+
+
+
+
+
     })
     .controller('Controller2', function ($scope, $stateParams, names) {
         $scope.firstName = $stateParams.firstName;
@@ -20,9 +30,9 @@ angular.module('myApp.Controllers', [])
 
     })
 
-     .controller('scotchController', function ($scope) {
+     .controller('scotchController', function ($scope, DATA_SOURCE) {
 
-            $scope.message = 'test';
+            $scope.message = DATA_SOURCE;
 
             $scope.scotches = [
                 {
