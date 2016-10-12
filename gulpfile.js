@@ -21,6 +21,9 @@ gulp.task('watches', ['browserSync'], function () {
     gulp.watch('app/**/*.js', browserSync.reload);
     gulp.watch('app/**/*.css', browserSync.reload);
 
+        gulp.watch('app/modules/**/*.{css,html,js}', browserSync.reload);
+
+    
 });
 
 

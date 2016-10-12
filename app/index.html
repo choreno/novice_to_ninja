@@ -1,48 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="spBlogger">
 
 <head>
 	<meta charset="UTF-8">
-	 <base href="/">
+	 <!--<base href="/">-->
 
 
-	<title>Novice to Ninja</title>
+	<title>The Single Page Blogger</title>
    	<!--bootstrap-->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
 	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="app/css/app.css">
+	<link rel="stylesheet" type="text/css" href="app/modules/posts/css/posts.css">
 
-<!--<script type="text/ng-template" id="embedded.home.html">
-    <h1> Home </h1>
-</script>
-
-<script type="text/ng-template" id="embedded.about.html">
-    <h1> About </h1>
-</script>-->
 
 
 
 </head>
 
-<body>
+<body class="container">
 
-	<!-- NAVIGATION -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="about">About</a></li>
-    </ul>
-</nav>
+<br>
+<div class="jumbotron text-center">
+	<h1>The Single Page Blogger</h1>
+	<p>One stop blogging solution</p>
+</div>
+
+<ui-view></ui-view>
+
+<div class="row footer">
+	<div class="col-xs-12 text-center">
+		<p>The Single Page Blogger <app-version></app-version></p>
+	</div>
+</div>
 
 
-
-
-   <div ui-view></div>
 
 
 
@@ -65,10 +59,13 @@
 
 
 	<script type="text/javascript" src="app/js/app.js"></script>
-	<script type="text/javascript" src="app/js/controllers.js"></script>
 
-	<!--<script type="text/javascript" src="app/modules/posts/js/controllers.js"></script>
-    <script type="text/javascript" src="app/modules/posts/postsModule.js"></script>-->
+	<script type="text/javascript" src="app/modules/posts/postsModule.js"></script>
+	<script type="text/javascript" src="app/modules/posts/js/controllers.js"></script>
+	<script type="text/javascript" src="app/modules/posts/js/filters.js"></script>
+	<script type="text/javascript" src="app/modules/posts/js/directives.js"></script>
+	<script type="text/javascript" src="app/modules/posts/js/services.js"></script>
+
 
 
 

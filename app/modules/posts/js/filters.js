@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    angular.module('posts.filters',[])
+    angular.module('spBlogger.posts.filters',[])
 
 
 })();

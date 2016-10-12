@@ -1,10 +1,20 @@
 (function () {
     'use strict';
-    // angular.module('postsModule',['posts.controllers','posts.directives','posts.services','posts.filters'])
-    angular.module('postsModule', ['posts.controllers'])
-
-
-        
+    
+    angular.module('spBlogger.posts',['ui.router', 'spBlogger.posts.controllers', 'spBlogger.posts.services'])
+    .config(['$stateProvider','$locationProvider',function($stateProvider,$locationProvider){
+        $stateProvider
+        .state('allPosts',{
+            url:'/posts',
+            templateUrl:'modules/posts/views/posts.html',
+            controller:'PostController'
+        })
+        .state('singlePost',{
+            url:'/posts/:id/:permalink',
+            templateUrl:'modules/posts/views/singlePost.html',
+            controller: 'PostDetailsController'
+        })
+    }])
 
 
 
