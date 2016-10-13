@@ -6,7 +6,7 @@
         .factory('Pokemon', Pokemon);
 
     Pokemon.$inject = [];
-    
+
     function Pokemon($http) {
         var API = 'http://pokeapi.co/api/v2/pokemon/';
         var Pokemon = {};
@@ -16,9 +16,12 @@
                 .then(function (res) {
                     return res.data;
                 })
+                .catch(function (res) {
+                    return res.data;
+                });
         }
 
-        return Pokemon; 
+        return Pokemon;
     }
 
 })();
