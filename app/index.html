@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--<html lang="en" ng-app="spBlogger">-->
-<html lang="en" ng-app="myApp" >
+<html lang="en" ng-app="myApp">
 
 <head>
 	<meta charset="UTF-8">
@@ -16,38 +16,38 @@
 	<link rel="stylesheet" type="text/css" href="app/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app/modules/posts/css/posts.css">
 
-
-
-
 </head>
 
 <body class="container" ng-controller="UserController">
 
-	<br>
 
-	<!--<form name="myform">
-		<select name="country" ng-model="user.country" ng-options="country.id as country.desc for country in countries">
-		</select>
+	<br>
+	<form name="myform" novalidate ng-submit="saveUser()">
+		First Name:
+		<input type="text" name="firstname" ng-model="user.firstname" ng-required="true" ng-minlength="2" />
+		<span class="error-message" ng-show="myform.firstname.$dirty && myform.firstname.$error.required">
+			The First Name is Mandatory
+		</span>
+		<span class="error-message" ng-show="myform.firstname.$dirty && myform.firstname.$error.minlength">
+			The First Name should be minimum 2 characters</span>
+		<br/>Last Name :
+		<input type="text" name="lastname" ng-model="user.lastname" ng-required="true" ng-minlength="2" />
+		<span class="error-message" ng-show="myform.lastname.$dirty && myform.lastname.$error.required">
+			The Last Name is Mandatory
+		</span>
+		<span class="error-message" ng-show="myform.lastname.$dirty && myform.lastname.$error.minlength">
+			The Last Name should beminimum 2 characters</span>
+		<br/>Phone No. :
+		<input type="text" name="phoneNumber" ng-model="user.phoneNumber" ng-maxlength="10" ng-minlength="10" ng-pattern="/^\d{10}$/"/>
+		<span class="error-message" ng-show="myform.phoneNumber.$dirty && myform.phoneNumber.$invalid">
+			The phone number field should be of 10 digits
+		</span>
+		<br/>
+
+			<input type="submit" value="Save"/>
 	</form>
 
-	<div>Selected Country: {{user.country}}</div>-->
 
-
-
-	<!--<div class="jumbotron text-center">
-	<h1>The Single Page Blogger</h1>
-	<p>One stop blogging solution</p>
-</div>
-
-
-<ui-view></ui-view>
-
-<div class="row footer">
-	<div class="col-xs-12 text-center">
-		<p>The Single Page Blogger <app-version></app-version></p>
-	</div>
-</div>
--->
 
 
 
@@ -78,7 +78,6 @@
 	<script type="text/javascript" src="app/modules/posts/js/directives.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/services.js"></script>
 -->
-
 
 
 </body>

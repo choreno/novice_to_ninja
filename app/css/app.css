@@ -226,3 +226,13 @@ span.error-message{
 .notice{
     text-align:center;
 }
+
+
+
+/*novice to ninja*/
+.error-message {
+color: red;
+}
+input.ng-dirty.ng-invalid {
+border-color: red;
+}
