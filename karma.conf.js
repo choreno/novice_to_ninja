@@ -20,9 +20,18 @@ module.exports = function (config) {
       'node_modules/angular-ui-router/release/angular-ui-router.js',
       'node_modules/angular-mocks/angular-mocks.js',
 
-      'app/js/users/users.js',
       'app/js/app.js',
-      'app/js/users/users.spec.js'
+      
+      'app/js/users/users.js',
+      'app/js/users/users.spec.js',
+      
+      'app/components/users/users.js',
+      'app/components/users/users.spec.js',
+
+      'app/js/pokemon/pokemon.js',
+      'app/js/pokemon/pokemon.spec.js',
+
+
 
     ],
 
