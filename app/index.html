@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="spBlogger">
+<!--<html lang="en" ng-app="spBlogger">-->
+<html lang="en" ng-app="myApp" >
 
 <head>
 	<meta charset="UTF-8">
-	 <!--<base href="/">-->
+	<!--<base href="/">-->
 
 
 	<title>The Single Page Blogger</title>
-   	<!--bootstrap-->
+	<!--bootstrap-->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,13 +21,24 @@
 
 </head>
 
-<body class="container">
+<body class="container" ng-controller="UserController">
 
-<br>
-<div class="jumbotron text-center">
+	<br>
+
+	<!--<form name="myform">
+		<select name="country" ng-model="user.country" ng-options="country.id as country.desc for country in countries">
+		</select>
+	</form>
+
+	<div>Selected Country: {{user.country}}</div>-->
+
+
+
+	<!--<div class="jumbotron text-center">
 	<h1>The Single Page Blogger</h1>
 	<p>One stop blogging solution</p>
 </div>
+
 
 <ui-view></ui-view>
 
@@ -35,7 +47,7 @@
 		<p>The Single Page Blogger <app-version></app-version></p>
 	</div>
 </div>
-
+-->
 
 
 
@@ -47,7 +59,7 @@
 
 	<!--script section-->
 
-	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
 	<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
 	<script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
 	<script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
@@ -60,12 +72,12 @@
 
 	<script type="text/javascript" src="app/js/app.js"></script>
 
-	<script type="text/javascript" src="app/modules/posts/postsModule.js"></script>
+	<!--<script type="text/javascript" src="app/modules/posts/postsModule.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/controllers.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/filters.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/directives.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/services.js"></script>
-
+-->
 
 
 
