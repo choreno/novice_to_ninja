@@ -22,7 +22,12 @@
 
 
 	<br>
-	<form name="myform" novalidate ng-submit="saveUser()">
+
+	<input type="text" ng-model="firstname" ng-model-options="{updateOn: 'blur', debounce:{default: 100, blur:2000}}" />
+
+	<div>{{firstname}}</div>
+
+	<!--<form name="myform" novalidate ng-submit="saveUser()">
 		First Name:
 		<input type="text" name="firstname" ng-model="user.firstname" ng-required="true" ng-minlength="2" />
 		<span class="error-message" ng-show="myform.firstname.$dirty && myform.firstname.$error.required">
@@ -45,7 +50,7 @@
 		<br/>
 
 			<input type="submit" value="Save"/>
-	</form>
+	</form>-->
 
 
 
