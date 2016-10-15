@@ -26,29 +26,49 @@
     function UserController($scope) {
          var vm = this;
 
-        $scope.user = {};
-        $scope.countries = [{
-            id: 'US',
-            desc: 'United States'
-        },
-        {
-            id: 'GB',
-            desc: 'United Kingdom'
-        }];
+        // $scope.user = {};
+        // $scope.countries = [{
+        //     id: 'US',
+        //     desc: 'United States'
+        // },
+        // {
+        //     id: 'GB',
+        //     desc: 'United Kingdom'
+        // }];
 
-        $scope.saveUser = function(){
-            if($scope.myform.$valid){
-                console.log('saving user');
+        // $scope.saveUser = function(){
+        //     if($scope.myform.$valid){
+        //         console.log('saving user');
                 
-            }
-            else{
-                console.log('unable to save');
+        //     }
+        //     else{
+        //         console.log('unable to save');
                 
-            }
+        //     }
 
-        }
+        // }
+
+var users = [
+      { 
+        name: 'Chris',
+        email: ''
+      },
+      {
+        name: 'Holly',
+        email: ''
+      }
+  ];  
+
+  // assign this data to an object to store all our form data
+  $scope.formData = {};
+  $scope.formData.users = users;
+
 
 
     }
+
+
+
 })();
+
 
