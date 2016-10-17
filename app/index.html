@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--<html lang="en" ng-app="spBlogger">-->
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="spBlogger">
+<!--<html lang="en" ng-app="myApp">-->
 
 <head>
 	<meta charset="UTF-8">
@@ -18,66 +18,23 @@
 
 </head>
 
-<body class="container" ng-controller="UserController">
-<!--
+<body class="container">
 
-<form name="userForm" novalidate>
-
-  <div class="form-group" ng-repeat="user in formData.users">
-    <label>{{ user.name }}'s Email</label>
-    <input type="text" class="form-control" name="email" ng-model="user.email" required>
-    <p class="help-block" ng-show="userForm.email.$invalid">Valid Email Address Required</p>
-  </div>
-
-</form>-->
-
-<form name="userForm" novalidate>
-
-  <div class="form-group" ng-repeat="user in formData.users" ng-class="{ 'has-error' : userFieldForm.email.$invalid }">
-  <ng-form name="userFieldForm">
-    <label>{{ user.name }}'s Email</label>
-    <input type="text" class="form-control" name="email" ng-model="user.email" required>
-    <p class="help-block" ng-show="userFieldForm.email.$invalid">Valid Email Address Required</p>
-  </ng-form>
-  </div>
-
-</form>
-
-
-	<!--<br>
-
-	<input type="text" ng-model="firstname" ng-model-options="{updateOn: 'blur', debounce:{default: 100, blur:2000}}" />
-
-	<div>{{firstname}}</div>-->
-
-	<!--<form name="myform" novalidate ng-submit="saveUser()">
-		First Name:
-		<input type="text" name="firstname" ng-model="user.firstname" ng-required="true" ng-minlength="2" />
-		<span class="error-message" ng-show="myform.firstname.$dirty && myform.firstname.$error.required">
-			The First Name is Mandatory
-		</span>
-		<span class="error-message" ng-show="myform.firstname.$dirty && myform.firstname.$error.minlength">
-			The First Name should be minimum 2 characters</span>
-		<br/>Last Name :
-		<input type="text" name="lastname" ng-model="user.lastname" ng-required="true" ng-minlength="2" />
-		<span class="error-message" ng-show="myform.lastname.$dirty && myform.lastname.$error.required">
-			The Last Name is Mandatory
-		</span>
-		<span class="error-message" ng-show="myform.lastname.$dirty && myform.lastname.$error.minlength">
-			The Last Name should beminimum 2 characters</span>
-		<br/>Phone No. :
-		<input type="text" name="phoneNumber" ng-model="user.phoneNumber" ng-maxlength="10" ng-minlength="10" ng-pattern="/^\d{10}$/"/>
-		<span class="error-message" ng-show="myform.phoneNumber.$dirty && myform.phoneNumber.$invalid">
-			The phone number field should be of 10 digits
-		</span>
+	<div class="container">
 		<br/>
-
-			<input type="submit" value="Save"/>
-	</form>-->
-
-
-
-
+		<div class="jumbotron text-center">
+			<h1>The Single Page Blogger</h1>
+			<p>One stop blogging solution</p>
+		</div>
+		<div ui-view></div>
+		<div class="row footer">
+			<div class="col-xs-12 text-center">
+				<p>The Single Page Blogger
+					<app-version/>
+				</p>
+			</div>
+		</div>
+	</div>
 
 
 

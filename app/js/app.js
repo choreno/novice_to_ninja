@@ -2,7 +2,7 @@
     'use strict';
 
     //this one allows any kind of urls, but does not work, always show the /posts UI
-    angular.module('spBlogger', ['spBlogger.posts'])
+    angular.module('spBlogger', ['spBlogger.posts','spBlogger.admin'])
         .run(['$state', function ($state) {
             $state.go('allPosts');
         }
