@@ -27,7 +27,9 @@
 				<div class="col-sm-10">
 					<input type="text" name="keywords" class="form-control" id="keywords" ng-pattern="/^[\w,]+$/" ng-model="post.keywords" placeholder="Comma separated keywords"
 					/>
-					<span class="error-message" ng-show="newPostForm.keywords.$dirty && newPostForm.keywords.$invalid">Sorry! No special characters allowed here</span>
+					<span class="error-message" ng-show="newPostForm.keywords.$dirty && newPostForm.keywords.$invalid">
+						Sorry! No special characters allowed here
+					</span>
 				</div>
 			</div>
 			<div class="form-group">
