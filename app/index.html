@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="spBlogger">
+<!--<html lang="en" ng-app="spBlogger">-->
 <!--<html lang="en" ng-app="myApp">-->
+<html lang="en" ng-app="mainApp">	
 
 <head>
 	<meta charset="UTF-8">
@@ -18,9 +19,28 @@
 
 </head>
 
-<body class="container">
+<body class="container" ng-controller="MainController">
 
-	<div class="container">
+	<!--REST API-->
+
+
+<input type="button" ng-click="getAsyncMessage()" value="Get me an async message"/>
+<input type="button" ng-click="cancelRequested=true" value="Cancel Fetching Message"/><br/>
+Promise Status - {{status}}
+
+	<!--<button ng-click="getAsynchMessage()">Get me an Async Message!</button>
+	<button ng-click="cancelRequest=true">Cancel Promise Fetching message!</button>
+
+	Promise Status : {{status}}-->
+
+
+
+
+
+
+	<!--SpBlogger-->
+
+	<!--<div class="container">
 		<br/>
 		<div class="jumbotron text-center">
 			<h1>The Single Page Blogger</h1>
@@ -34,7 +54,7 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 
 
@@ -62,11 +82,11 @@
 	<script type="text/javascript" src="app/modules/posts/js/directives.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/services.js"></script>
 
-	<script src="app/modules/admin/adminModule.js"></script>
-	<script src="app/modules/admin/js/controllers.js"></script>
-	<script src="app/modules/admin/js/filters.js"></script>
-	<script src="app/modules/admin/js/directives.js"></script>
-	<script src="app/modules/admin/js/services.js"></script>
+	<script type="text/javascript" src="app/modules/admin/adminModule.js"></script>
+	<script type="text/javascript" src="app/modules/admin/js/controllers.js"></script>
+	<script type="text/javascript" src="app/modules/admin/js/filters.js"></script>
+	<script type="text/javascript" src="app/modules/admin/js/directives.js"></script>
+	<script type="text/javascript" src="app/modules/admin/js/services.js"></script>
 
 
 

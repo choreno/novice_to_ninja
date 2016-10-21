@@ -71,4 +71,93 @@ var users = [
 
 })();
 
+//Asynchronous REST API example
 
+(function(){
+    'use strict';
+    angular.module('mainApp',[])
+        .controller('MainController', ['$scope', '$q', '$interval', MainController]);
+
+    function MainController ($scope, $q, $interval) {
+        var vm = this;
+        
+        $scope.getPromise = function(){
+            var i = 0 ; 
+
+            //var cancelRequested = false; 
+
+            var deferred = $q.defer();
+
+            var timer = $interval(function(){
+                if(!!$scope.cancelRequested){
+                    deferred.reject('Promise rejected due to cancellation.');
+                    $interval.cancel(timer);
+               
+                }
+
+                i=i+1; 
+                if(i==5){
+                    deferred.resolve('Counter has reached to 5'); 
+                    $interval.cancel(timer);
+
+                }else{
+                    deferred.notify('Counter has reached ' + i );
+                }
+
+            }, 1000); 
+
+            return deferred.promise; 
+
+            // //Always return reject for test purpose
+
+            // return $q.reject('Reject reason ????')
+
+        };
+
+        $scope.getAsyncMessage = function(){
+            var promise = $scope.getPromise();
+            promise.then(function(message){
+                $scope.status = 'Resolved:' + message; 
+            }, function(message){
+                $scope.status = 'REJECTED: ' + message;
+                $scope.cancelRequested = false; //Reset the promise reject trigger variable
+            }, function(message){
+                $scope.status = 'Notifying: ' + message;
+            })
+        }
+
+
+
+    }
+})();
+
+
+(function(){
+    'use strict';
+    angular.module('mainModule',[])
+        .controller('TestController', ['$scope','customService', TestController]);
+
+    function TestController ($scope, customService) {
+        var vm = this;
+        $scope.getData = function(){
+            customService.getData()
+                .then(function(data, status, config, headers){
+                    console.log('Response from server' + data );
+                    
+                }, function(data, status, config, headers){
+                    console.log('Some error occurred')
+                });
+
+                //Or add success or error
+            customService.getData()
+            .success(function(data, status, config, headers){
+                console.log('Response from server' + data );
+            })
+            .error(function(data, status, config, headers){
+                console.log('Some error occurred')
+            })
+
+        }
+
+    }
+})();
