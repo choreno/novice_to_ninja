@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--<html lang="en" ng-app="spBlogger">-->
 <!--<html lang="en" ng-app="myApp">-->
-<html lang="en" ng-app="mainApp">	
+<html lang="en" ng-app="dirApp">
 
 <head>
 	<meta charset="UTF-8">
@@ -19,17 +19,21 @@
 
 </head>
 
-<body class="container" ng-controller="WeatherController">
+<body class="container" ng-controller="MainController">
 
 
-City :
-<input type="text" ng-model="city" placeholder="Enter city name here" />Country:
-<input type="text" ng-model="country" placeholder="Enter country name here" />
-<button ng-click="getWeather()">Get Weather</button>
-<br/>
-<br/>
-<b>Weather Condition:</b> <span>{{weatherDescription}}</span>
 
+<input type="text" ng-model="message" placeholder="Enter message" />
+<hello-world></hello-world>
+
+	<!--City :
+	<input type="text" ng-model="city" placeholder="Enter city name here" />Country:
+	<input type="text" ng-model="country" placeholder="Enter country name here" />
+	<button ng-click="getWeather()">Get Weather</button>
+	<br/>
+	<br/>
+	<b>Weather Condition:</b> <span>{{weatherDescription}}</span>
+-->
 
 
 
@@ -40,7 +44,7 @@ City :
 	<!--REST API-->
 
 
-<!--<input type="button" ng-click="getAsyncMessage()" value="Get me an async message"/>
+	<!--<input type="button" ng-click="getAsyncMessage()" value="Get me an async message"/>
 <input type="button" ng-click="cancelRequested=true" value="Cancel Fetching Message"/><br/>
 Promise Status - {{status}}-->
 
@@ -91,6 +95,14 @@ Promise Status - {{status}}-->
 
 
 	<script type="text/javascript" src="app/js/app.js"></script>
+	<script type="text/javascript" src="app/js/controllers.js"></script>
+	<script type="text/javascript" src="app/js/services.js"></script>
+	<script type="text/javascript" src="app/js/directives.js"></script>
+	<script type="text/javascript" src="app/js/filters.js"></script>
+
+
+
+
 
 	<script type="text/javascript" src="app/modules/posts/postsModule.js"></script>
 	<script type="text/javascript" src="app/modules/posts/js/controllers.js"></script>

@@ -164,34 +164,85 @@
 
 //api.openweathermap.org/data/2.5/weather?zip=94040,us
 
-angular.module('mainAppService', []).factory('weatherService',
-    function ($http) {
-        return {
-            getWeather: function (city, country) {
-                var query = city + ',' + country;
-                // return $http.get('http://api.openweathermap.org/data/2.5/weather', {
-                //     params: {
-                //         q: query
-                //     }
 
-                return $http.get('https://echo.getpostman.com/delay/3')
-                    .then(function (response) {
-                        //return response.data.weather[0].description;
-                        return response ;
-                    });
-            }
-        }
-    });
 
-angular.module('mainApp', ['mainAppService']).controller('WeatherController',
-    function ($scope, weatherService) {
-        $scope.getWeather = function () {
-            $scope.weatherDescription = "Fetching . . .";
-            weatherService.getWeather($scope.city, $scope.country)
-                .then(function (data) {
-                    $scope.weatherDescription = data;
-                }, function () {
-                    $scope.weatherDescription = "Could not obtain data";
-                });
-        }
-    });
+
+
+
+
+
+// angular.module('mainApp', []).controller('WeatherController',['$scope','weatherService', 
+//     function ($scope, weatherService) {
+//         $scope.getWeather = function () {
+//             $scope.weatherDescription = "Fetching . . .";
+//             weatherService.getWeather($scope.city, $scope.country)
+//                 .then(function (data) {
+//                     $scope.weatherDescription = data;
+//                 }, function () {
+//                     $scope.weatherDescription = "Could not obtain data";
+//                 });
+//         }
+//     }])
+//     .factory('weatherService', ['$http', function ($http) {
+//         return {
+//             getWeather: function (city, country) {
+//                 var query = city + ',' + country;
+//                 // return $http.get('http://api.openweathermap.org/data/2.5/weather', {
+//                 //     params: {
+//                 //         q: query
+//                 //     }
+
+//                 return $http.get('https://echo.getpostman.com/delay/3')
+//                     .then(function (response) {
+//                         //return response.data.weather[0].description;
+//                         return response;
+//                     });
+//             }
+//         }
+//     }])
+
+//     ;
+
+
+
+
+
+
+
+
+
+
+
+
+// angular.
+//     module('myServiceModule', []).
+//     controller('MyController', ['$scope', 'notify', function ($scope, notify) {
+//         $scope.callNotify = function (msg) {
+//             notify(msg);
+//         };
+//     }]).
+//     factory('notify', ['$window', function (win) {
+//         var msgs = [];
+//         return function (msg) {
+//             msgs.push(msg);
+//             if (msgs.length === 3) {
+//                 win.alert(msgs.join('\n'));
+//                 msgs = [];
+//             }
+//         };
+//     }]);
+
+
+// angular.module('mainApp',[]);
+
+
+
+(function(){
+    'use strict';
+    angular.module('dirApp',[])
+        .controller('MainController', ['$scope', MainController]);
+
+    function MainController($scope) {
+        $scope.message = 'I love angularJS'; 
+    }
+})();
