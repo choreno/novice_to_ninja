@@ -20,6 +20,16 @@ angular.module('mainApp',[]).controller('WeatherController',['$scope','weatherSe
 
 
 
+(function(){
+    'use strict';
+    angular.module('dirApp',[])
+        .controller('MainController', ['$scope', MainController]);
+
+    function MainController($scope) {
+        $scope.message = 'I love angularJS'; 
+    }
+})();
+
 
 
 

@@ -29,7 +29,7 @@ angular.module('spBlogger.directives').directive('appVersion',['version',functio
 (function(){
 	'use strict';
 	angular.module('dirApp')
-		.directive('helloWorld', ['', helloWorld]);
+		.directive('helloWorld', [helloWorld]);
 
 	function helloWorld() {
 		return {

@@ -236,13 +236,3 @@
 // angular.module('mainApp',[]);
 
 
-
-(function(){
-    'use strict';
-    angular.module('dirApp',[])
-        .controller('MainController', ['$scope', MainController]);
-
-    function MainController($scope) {
-        $scope.message = 'I love angularJS'; 
-    }
-})();
