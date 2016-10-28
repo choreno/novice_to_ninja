@@ -4,32 +4,20 @@
 		.directive('unorderedList', [unorderedList]);
 
 	function unorderedList() {
+		return {
+			restrict: 'AE',
+			// templateUrl: function(element, attrs){ //no scope allowed???
 
-		return function (scope, element, attrs) {
-
-			// console.log(scope);
-			// console.log(element);
-			// console.log(attrs);
-
-			var data = scope[attrs['unorderedList']];
-
-			
-			if (angular.isArray(data)) {
-
-				var listElem = angular.element('<ul>');
-
-				element.append(listElem);
-
-
-				for (var i = 0; i < data.length; i++) {
-					// console.log(i);
-
-					console.log('DataItem: ' + data[i].name);
-					listElem.append(angular.element('<li>').text(data[i].name));
-					
-
-				}
+			// 	return attrs['template'] == 'table' ?  './TemplateViews/tableTemplate.html' : './TemplateViews/itemTemplate.html'
+			// },
+			templateUrl: './TemplateViews/tableTemplate.html',
+			// replace: true,
+			link: function (scope, element, attrs) {
+				scope.data = scope[attrs['unorderedList']]; //get the ctrl's scope data ???
 			}
+
+
 		}
 	}
 })();
+

@@ -18,6 +18,13 @@
 	<link rel="stylesheet" type="text/css" href="app/css/app.css">
 	<link rel="stylesheet" type="text/css" href="app/modules/posts/css/posts.css">
 
+	<script type="text/template" id="listTemplate">
+		<ul>
+			<li ng-repeat="item in data">{{item.price| currency}}</li>
+		</ul>
+	</script>
+
+
 </head>
 
 <body class="container" ng-controller="defaultCtrl">
@@ -26,14 +33,46 @@
 		<div class="panel-heading">
 			<h3>Products</h3>
 		</div>
+		<!--<div class="panel-body">
+			<button class="btn btn-primary" ng-click="incrementPrices()">Change Prices</button>
+		</div>-->
 		<div class="panel-body">
-			<div unordered-list="products"></div>
+			<div unordered-list="products"  class="table table-striped" ng-repeat="count in [1, 2, 3]">
+				This is where the list will go
+			</div>
 		</div>
+		<!--<div class="panel-body">
+			<div unordered-list="products" template="table">
+				This is where the list will go
+			</div>
+		</div>-->
 	</div>
 
+	<!--	
 	<ul>
-		<li ng-repeat="item in products">{{item.name}}</liv>
-	</ul>
+		<li ng-repeat="item in products">{{item.price | currency}}</li>
+	</ul>-->
+
+	<!--<h3>Fuit</h3>
+	<ol demo-directive>
+		<li>Apples</li>
+		<ul>
+			<li>Bananas</li>
+			<li>Cherries</li>
+			<li>Oranges</li>
+		</ul>
+		<li>Oranges</li>
+		<li>Pears</li>
+
+	</ol>-->
+
+
+
+
+
+
+
+
 
 
 
