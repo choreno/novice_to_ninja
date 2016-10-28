@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <!--<html lang="en" ng-app="spBlogger">-->
 <!--<html lang="en" ng-app="myApp">-->
-<html lang="en" ng-app="dirApp">
+<!--<html lang="en" ng-app="dirApp">-->
+<html lang="en" ng-app="exampleApp">
 
 <head>
 	<meta charset="UTF-8">
 	<!--<base href="/">-->
 
+	<title>Directives</title>
 
-	<title>The Single Page Blogger</title>
 	<!--bootstrap-->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
@@ -19,66 +20,20 @@
 
 </head>
 
-<body class="container" ng-controller="MainController">
+<body class="container" ng-controller="defaultCtrl">
 
-
-
-<input type="text" ng-model="message" placeholder="Enter message" />
-<hello-world></hello-world>
-
-	<!--City :
-	<input type="text" ng-model="city" placeholder="Enter city name here" />Country:
-	<input type="text" ng-model="country" placeholder="Enter country name here" />
-	<button ng-click="getWeather()">Get Weather</button>
-	<br/>
-	<br/>
-	<b>Weather Condition:</b> <span>{{weatherDescription}}</span>
--->
-
-
-
-
-
-
-
-	<!--REST API-->
-
-
-	<!--<input type="button" ng-click="getAsyncMessage()" value="Get me an async message"/>
-<input type="button" ng-click="cancelRequested=true" value="Cancel Fetching Message"/><br/>
-Promise Status - {{status}}-->
-
-	<!--<button ng-click="getAsynchMessage()">Get me an Async Message!</button>
-	<button ng-click="cancelRequest=true">Cancel Promise Fetching message!</button>
-
-	Promise Status : {{status}}-->
-
-
-
-
-
-
-	<!--SpBlogger-->
-
-	<!--<div class="container">
-		<br/>
-		<div class="jumbotron text-center">
-			<h1>The Single Page Blogger</h1>
-			<p>One stop blogging solution</p>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3>Products</h3>
 		</div>
-		<div ui-view></div>
-		<div class="row footer">
-			<div class="col-xs-12 text-center">
-				<p>The Single Page Blogger
-					<app-version/>
-				</p>
-			</div>
+		<div class="panel-body">
+			<div unordered-list="products"></div>
 		</div>
-	</div>-->
+	</div>
 
-
-
-
+	<ul>
+		<li ng-repeat="item in products">{{item.name}}</liv>
+	</ul>
 
 
 

@@ -1,58 +1,35 @@
-'use strict'
-
-angular.module('spBlogger.directives',[]);
-
-angular.module('spBlogger.directives').directive('appVersion',['version',function(version){
-	return {
-		restrict: 'AE',
-		link: function(scope,elem,attrs){
-			elem.html(version);
-		}
-	}	
-}]);
-
-(function(){
+(function () {
 	'use strict';
-	angular.module('mainApp',[])
-		.directive('helloWorld', [helloWorld]);
+	angular.module('exampleApp')
+		.directive('unorderedList', [unorderedList]);
 
-	function helloWorld() {
-		return{
-			restrict: 'AEC',
-			replace: true,
-			template: '<h3>Hello, World!</h3>'
-		}
-	}
-})();
+	function unorderedList() {
+
+		return function (scope, element, attrs) {
+
+			// console.log(scope);
+			// console.log(element);
+			// console.log(attrs);
+
+			var data = scope[attrs['unorderedList']];
+
+			
+			if (angular.isArray(data)) {
+
+				var listElem = angular.element('<ul>');
+
+				element.append(listElem);
 
 
-(function(){
-	'use strict';
-	angular.module('dirApp')
-		.directive('helloWorld', [helloWorld]);
+				for (var i = 0; i < data.length; i++) {
+					// console.log(i);
 
-	function helloWorld() {
-		return {
+					console.log('DataItem: ' + data[i].name);
+					listElem.append(angular.element('<li>').text(data[i].name));
+					
 
-			restrict: 'AEC',
-			replace:'true',
-			template:'<p ng-click="clearMessage()">Hello,World! {{message}} </p>',
-			link: function(scope,elem,attrs){
-				scope.$watch('message', function(value){
-					console.log('Message Changed');
-				});
-
-				scope.clearMessage = function(){
-					scope.message=''; 
 				}
-
-				elem.bind('mouseover', function(){
-					elem.css('cursor','pointer');
-				})
-
-
 			}
 		}
-
 	}
 })();
