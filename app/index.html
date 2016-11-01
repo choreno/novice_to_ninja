@@ -24,29 +24,53 @@
 		</ul>
 	</script>
 
+	<script type="text/template" id="dirScope">
+		<div class="panel-body">Name: <input ng-model=name></div>
+	</script>
+
+	<script type="text/template" id="scopeTemplate">
+		<div class="panel-body">
+			<p>Name: <input ng-model="data.name" /></p>
+			<p>City: <input ng-model="city" /></p>
+			<p>Country: <input ng-model="country" /></p>
+		</div>
+	</script>
+
+
 
 </head>
 
-<body class="container" ng-controller="defaultCtrl">
+<body class="container" ng-controller="scopeCtrl">
 
+	<div class="panel panle-default">
+		<div class="panel-body" scope-demo></div>
+		<div class="panel-body" scope-demo></div>
+	</div>
+
+
+
+
+
+	<!--	
+	
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3>Products</h3>
 		</div>
-		<!--<div class="panel-body">
+		<div class="panel-body">
 			<button class="btn btn-primary" ng-click="incrementPrices()">Change Prices</button>
-		</div>-->
+		</div>
 		<div class="panel-body">
 			<div unordered-list="products"  class="table table-striped" ng-repeat="count in [1, 2, 3]">
 				This is where the list will go
 			</div>
 		</div>
-		<!--<div class="panel-body">
+		<div class="panel-body">
 			<div unordered-list="products" template="table">
 				This is where the list will go
 			</div>
-		</div>-->
-	</div>
+		</div>
+	</div>-->
 
 	<!--	
 	<ul>
