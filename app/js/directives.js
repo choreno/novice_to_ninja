@@ -32,9 +32,12 @@
 		return{
 			restrict: 'A',
 			template: function(){
-				return angular.element(document.querySelector("#scopeTemplate")).html();
+				return angular.element(document.querySelector("#scopeTemplate2")).html();
 			},
-			scope: {}
+			scope: {
+				local: '=nameprop',
+				cityFn: '&city'
+			}
 			
 		}
 	}

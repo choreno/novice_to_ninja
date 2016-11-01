@@ -5,53 +5,58 @@
 <html lang="en" ng-app="exampleApp">
 
 <head>
-	<meta charset="UTF-8">
-	<!--<base href="/">-->
+    <meta charset="UTF-8">
+    <!--<base href="/">-->
+    <title>Directives</title>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app/css/app.css">
+    <link rel="stylesheet" type="text/css" href="app/modules/posts/css/posts.css">
+    <script type="text/template" id="listTemplate">
+        <ul>
+            <li ng-repeat="item in data">{{item.price| currency}}</li>
+        </ul>
+    </script>
+    <script type="text/template" id="dirScope">
+        <div class="panel-body">Name: <input ng-model=name></div>
+    </script>
+    <script type="text/template" id="scopeTemplate">
+        <div class="panel-body">
+            <p>Name: <input ng-model="data.name" /></p>
+            <p>City: <input ng-model="city" /></p>
+            <p>Country: <input ng-model="country" /></p>
+        </div>
+    </script>
+    <script type="text/template" id="scopeTemplate2">
+        <div class="panel-body">
+            <p>Name: {{local}}, City: {{cityFn()}}</p>
+            <!--<p>Name: {{local}}</p>-->
 
-	<title>Directives</title>
-
-	<!--bootstrap-->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-	<link rel="stylesheet" type="text/css" href="app/css/app.css">
-	<link rel="stylesheet" type="text/css" href="app/modules/posts/css/posts.css">
-
-	<script type="text/template" id="listTemplate">
-		<ul>
-			<li ng-repeat="item in data">{{item.price| currency}}</li>
-		</ul>
-	</script>
-
-	<script type="text/template" id="dirScope">
-		<div class="panel-body">Name: <input ng-model=name></div>
-	</script>
-
-	<script type="text/template" id="scopeTemplate">
-		<div class="panel-body">
-			<p>Name: <input ng-model="data.name" /></p>
-			<p>City: <input ng-model="city" /></p>
-			<p>Country: <input ng-model="country" /></p>
-		</div>
-	</script>
-
-
-
+        </div>
+    </script>
+    <script type="text/ng-template" id="template">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>This is the panel</h4>
+            </div>
+            <div class="panel-body" ng-transclude>
+            </div>
+        </div>
+    </script>
 </head>
 
 <body class="container" ng-controller="scopeCtrl">
-
-	<div class="panel panle-default">
-		<div class="panel-body" scope-demo></div>
-		<div class="panel-body" scope-demo></div>
-	</div>
-
-
-
-
-
-	<!--	
+    <div class="panel panle-default">
+        <div class="panel-body">
+            Direct Binding: <input ng-model="data.name">
+        </div>
+        <!--<div class="panel-body" scope-demo nameprop="data.name"></div>-->
+        <!--<div class="panel-body" scope-demo nameprop="{{data.name + 'Freeman'}}"></div>-->
+        <div class="panel-body" scope-demo city="getCity(data.name)" nameprop="data.name"></div>
+    </div>
+    <!--	
 	
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -71,13 +76,11 @@
 			</div>
 		</div>
 	</div>-->
-
-	<!--	
+    <!--	
 	<ul>
 		<li ng-repeat="item in products">{{item.price | currency}}</li>
 	</ul>-->
-
-	<!--<h3>Fuit</h3>
+    <!--<h3>Fuit</h3>
 	<ol demo-directive>
 		<li>Apples</li>
 		<ul>
@@ -89,55 +92,30 @@
 		<li>Pears</li>
 
 	</ol>-->
-
-
-
-
-
-
-
-
-
-
-
-	<!--script section-->
-
-	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
-	<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
-	<!--<script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>-->
-	<!--ui.roter-->
-	<script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-
-
-	<script type="text/javascript" src="app/js/app.js"></script>
-	<script type="text/javascript" src="app/js/controllers.js"></script>
-	<script type="text/javascript" src="app/js/services.js"></script>
-	<script type="text/javascript" src="app/js/directives.js"></script>
-	<script type="text/javascript" src="app/js/filters.js"></script>
-
-
-
-
-
-	<script type="text/javascript" src="app/modules/posts/postsModule.js"></script>
-	<script type="text/javascript" src="app/modules/posts/js/controllers.js"></script>
-	<script type="text/javascript" src="app/modules/posts/js/filters.js"></script>
-	<script type="text/javascript" src="app/modules/posts/js/directives.js"></script>
-	<script type="text/javascript" src="app/modules/posts/js/services.js"></script>
-
-	<script type="text/javascript" src="app/modules/admin/adminModule.js"></script>
-	<script type="text/javascript" src="app/modules/admin/js/controllers.js"></script>
-	<script type="text/javascript" src="app/modules/admin/js/filters.js"></script>
-	<script type="text/javascript" src="app/modules/admin/js/directives.js"></script>
-	<script type="text/javascript" src="app/modules/admin/js/services.js"></script>
-
-
-
-
-
+    <!--script section-->
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
+    <!--<script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>-->
+    <!--ui.roter-->
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="app/js/app.js"></script>
+    <script type="text/javascript" src="app/js/controllers.js"></script>
+    <script type="text/javascript" src="app/js/services.js"></script>
+    <script type="text/javascript" src="app/js/directives.js"></script>
+    <script type="text/javascript" src="app/js/filters.js"></script>
+    <script type="text/javascript" src="app/modules/posts/postsModule.js"></script>
+    <script type="text/javascript" src="app/modules/posts/js/controllers.js"></script>
+    <script type="text/javascript" src="app/modules/posts/js/filters.js"></script>
+    <script type="text/javascript" src="app/modules/posts/js/directives.js"></script>
+    <script type="text/javascript" src="app/modules/posts/js/services.js"></script>
+    <script type="text/javascript" src="app/modules/admin/adminModule.js"></script>
+    <script type="text/javascript" src="app/modules/admin/js/controllers.js"></script>
+    <script type="text/javascript" src="app/modules/admin/js/filters.js"></script>
+    <script type="text/javascript" src="app/modules/admin/js/directives.js"></script>
+    <script type="text/javascript" src="app/modules/admin/js/services.js"></script>
 </body>
 
 </html>

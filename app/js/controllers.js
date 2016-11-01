@@ -22,16 +22,22 @@
 // })();
 
 
-(function () {
+(function() {
     'use strict';
     angular.module('exampleApp')
-        .controller('scopeCtrl', ['$scope', scopeCtrl]) ;
-        // .controller('secondCtrl', ['$scope', secondCtrl]);
+        .controller('scopeCtrl', ['$scope', scopeCtrl]);
+    // .controller('secondCtrl', ['$scope', secondCtrl]);
 
     function scopeCtrl($scope) {
-        //do nothing        
-        $scope.data={name: "Adam"};
-        $scope.city="London";
+
+        $scope.data = {
+            name: "Adam",
+            city: "Seoul"
+
+        };
+        $scope.getCity = function(name) {
+            return name == 'Adam' ? $scope.data.city : 'Unknown';
+        }
     }
 
     // function secondCtrl($scope) {
