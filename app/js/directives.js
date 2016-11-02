@@ -42,3 +42,25 @@
 		}
 	}
 })();
+
+
+(function(){
+	'use strict';
+	angular.module('exampleApp')
+		.directive('panel', [panel]);
+
+	function panel(){
+		return{
+			restrict: 'AE', 
+
+			link: function(scope,element,attrs){ 
+				scope.dataSource = "directive";
+			},
+			scope: false,
+			 transclude: true,
+			template: function(){
+				return angular.element(document.querySelector('#template')).html();
+			}
+		}
+	}
+})();

@@ -46,3 +46,13 @@
 
 
 })();
+
+(function(){
+    'use strict';
+    angular.module('exampleApp',[])
+        .controller('defaultCtrl', ['$scope', defaultCtrl]);
+
+    function defaultCtrl($scope) {
+        $scope.dataSource = "controller";
+    }
+})();
