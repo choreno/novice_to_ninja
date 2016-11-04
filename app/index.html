@@ -25,35 +25,52 @@
 	<script type="text/template" id="scopeTemplate">
         <div class="panel-body">
             <p>Name: <input ng-model="data.name" /></p>
-            <p>City: <input ng-model="city" /></p>
+            <p>City: <input ng-model="city" /></p>   
             <p>Country: <input ng-model="country" /></p>
-        </div>
+        </div> 
     </script>
 	<script type="text/template" id="scopeTemplate2">
-        <div class="panel-body">
+        <div class="panel-body">   
             <p>Name: {{local}}, City: {{cityFn()}}</p>
             <!--<p>Name: {{local}}</p>-->
 
         </div>
     </script>
-	<script type="text/ng-template" id="template">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>This is the panel</h4>
-            </div>
-            <div class="panel-body" ng-transclude>
-            </div>
-        </div>
-    </script>
+	<script type="text/ng-template" id="template"><div class="panel panel-default">
+		<div class="panel-heading">
+					<h4>This is the panel</h4>
+				</div>
+				<div class="panel-body" ng-transclude>
+				</div>
+			</div>
+	</script>
+	<script type="text/ng-template" id="productTemplate">
+		<td>{{item.name}}</td>
+		<td><input ng-model='item.quantity' /></td>
+	</script>
 </head>
 
 <body class="container" ng-controller="defaultCtrl">
+	
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<table class="table table-striped" product-table="totalValue" product-data="products" ng-transclude>
+				<tr>
+					<th>Name</th>
+					<th>Quantity</th>
+				</tr>
+				<tr ng-repeat="item in products" product-item></tr>
+				<tr>
+					<th>Total:</th>
+					<td>{{totalValue}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 
-
-	<panel>
+	<!--<panel>
 		The data value comes from the: {{dataSource}}
-	</panel>
-
+	</panel>-->
 	<!--<div class="panel panle-default">
         <div class="panel-body">
             Direct Binding: <input ng-model="data.name">

@@ -23,44 +23,93 @@
 
 
 
-(function(){
+(function () {
 	'use strict';
 	angular.module('exampleApp')
 		.directive('scopeDemo', [scopeDemo]);
 
-	function scopeDemo(){
-		return{
+	function scopeDemo() {
+		return {
 			restrict: 'A',
-			template: function(){
+			template: function () {
 				return angular.element(document.querySelector("#scopeTemplate2")).html();
 			},
 			scope: {
 				local: '=nameprop',
 				cityFn: '&city'
 			}
-			
+
 		}
 	}
 })();
 
 
-(function(){
+(function () {
 	'use strict';
 	angular.module('exampleApp')
 		.directive('panel', [panel]);
 
-	function panel(){
-		return{
-			restrict: 'AE', 
+	function panel() {
+		return {
+			restrict: 'AE',
 
-			link: function(scope,element,attrs){ 
+			link: function (scope, element, attrs) {
 				scope.dataSource = "directive";
 			},
 			scope: false,
-			 transclude: true,
-			template: function(){
+			transclude: true,
+			template: function () {
 				return angular.element(document.querySelector('#template')).html();
 			}
+		}
+	}
+})();
+
+
+(function () {
+	'use strict';
+	angular.module('exampleApp')
+		.directive('productItem', [productItem]);
+
+	function productItem() {
+		return {
+			template: function () {
+				return angular.element(document.querySelector('#productTemplate')).html();
+			},
+			require: '^productTable',
+			link: function(scope,element,attrs,ctrl){
+				scope.$watch('item.quantity', function(){
+					ctrl.updateTotal(); 
+				})
+			}
+		}
+	}
+})();
+
+(function(){
+	'use strict';
+	angular.module('exampleApp')
+		.directive('productTable', [productTable]);
+
+	function productTable(){
+		return{
+			transclude: true,
+			scope:{
+				value: '=productTable',
+				data: '=productData'
+			},
+			controller: function($scope,$element,$attrs){
+				this.updateTotal = function(){	
+					var total = 0 ;
+					for (var i = 0; i < $scope.data.length; i++) {
+						total += Number($scope.data[i].quantity) ;
+						
+					}
+					$scope.value = total; 
+				}
+			} 
+			
+
 		}
 	}
 })();
